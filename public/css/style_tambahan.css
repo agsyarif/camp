@@ -1,0 +1,95 @@
+.in-wrapper {
+    position: relative;
+}
+
+.wrapper {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.wrapper.active {
+    border: none;
+}
+
+.wrapper .image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper .image-edit {
+    display: flex;
+    border: none;
+}
+
+.wrapper.active .image {
+    display: flex;
+}
+
+.wrapper img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.wrapper .icon {
+    font-size: 100px;
+    color: rgb(2, 94, 2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(2, 94, 2);
+}
+
+.wrapper #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #9658fe;
+    cursor: pointer;
+    display: none;
+}
+
+.wrapper.active:hover #cancel-btn i {
+    display: block;
+}
+
+.wrapper #cancel-btn i:hover {
+    color: #e74c3c;
+}
+
+.wrapper .file-name {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 18px;
+    color: #fff;
+    display: none;
+    background: linear-gradient(135deg, #1b3513 0%, #284b1d 100%);
+}
+
+.wrapper.active:hover .file-name {
+    display: block;
+}
+
+.wrapper #custom-btn:hover {
+    background: #3a8ffe;
+}

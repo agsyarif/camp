@@ -1,0 +1,84 @@
+* {
+    font-family: poppins;
+}
+
+html {
+    /* background: linear-gradient(180deg,#F7F7FB, #1111bd); */
+    background-color: #212529;
+}
+
+#lesson .sidebar li .submenu {
+    color: darkgrey;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#lesson .nav-bg {
+    background-color: rgb(48, 50, 58);
+}
+
+#lesson nav ul li a.white,
+a.white {
+    color: darkgrey;
+    background-color: #212529;
+    text-decoration: none;
+}
+
+#lesson nav ul li a.hover:hover,
+li a.nav-link:focus {
+    background-color: rgb(60, 66, 87);
+    color: black;
+    transition: all 0.5s;
+}
+
+/* catalog */
+.catalog {
+    color: black;
+    background-color: #dfdff8;
+
+}
+
+.catalog .sidebar-bg {
+    background: linear-gradient(180deg, #e4e4f7, #f4f4ff, #e4e4f7);
+
+}
+
+.sidebar li .submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+section div div div nav ul li a {
+    color: black;
+}
+
+#catalog .sidebar-bg .sidebar nav ul li a.white,
+a.white {
+    color: darkgrey;
+    text-decoration: none;
+    background-color: #e5e9f2;
+}
+
+#catalog .card-bg {
+    background: linear-gradient(160deg, #f4f4ff, #e4e4f7);
+}
+
+#catalog .price {
+    margin-top: 4rem;
+    color: darkgrey;
+}
+
+.catalog nav ul li a.hover:hover,
+li a.nav-link:focus {
+    background-color: rgb(60, 66, 87);
+    color: black;
+    transition: all 0.5s;
+}
+
+/* catalog */
