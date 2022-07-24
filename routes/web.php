@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\API\MidtransController;
 use App\Http\Controllers\Landing\LandingController;
@@ -9,22 +11,22 @@ use App\Http\Controllers\Dashboard\MemberController;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\WebinarController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\member\QuizController;
 use App\Http\Controllers\Dashboard\mentor\ExamController;
 use App\Http\Controllers\Dashboard\mentor\TypeController;
 use App\Http\Controllers\Dashboard\member\MateriController;
 use App\Http\Controllers\Dashboard\mentor\courseController;
+// use App\Http\Controllers\Dashboard\mentor\profileController as mentorProfileController;
 use App\Http\Controllers\Dashboard\mentor\lessonController;
 use App\Http\Controllers\Dashboard\mentor\chapterController;
 use App\Http\Controllers\Dashboard\mentor\priviewController;
-// use App\Http\Controllers\Dashboard\mentor\profileController as mentorProfileController;
+use App\Http\Controllers\Dashboard\member\ProgressController;
 use App\Http\Controllers\Dashboard\mentor\QuestionController;
 use App\Http\Controllers\Dashboard\mentor\createMateriController;
 use App\Http\Controllers\Dashboard\mentor\courseCategoryController;
 use App\Http\Controllers\Dashboard\MentorController as DashboardMentorController;
 use App\Http\Controllers\Dashboard\member\CourseController as MemberCourseController;
 use App\Http\Controllers\Dashboard\member\MemberController as MemberMemberController;
-use App\Http\Controllers\Dashboard\member\ProgressController;
-use App\Http\Controllers\Dashboard\member\QuizController;
 use App\Http\Controllers\Dashboard\mentor\profileController as mentorProfileController;
 
 
@@ -62,6 +64,24 @@ Route::post('payment/success', [LandingController::class, 'midtransCallback']);
 // Route::group(['middleware' => ['auth', 'admin']], function () {
 // Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 // });
+
+// get image from storage folder
+Route::get('/storage/course/thumbnail/{filename}', function ($filename) {
+    $path = storage_path('public/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
+
 
 Route::group(
     ['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'verified', 'Admin']],
