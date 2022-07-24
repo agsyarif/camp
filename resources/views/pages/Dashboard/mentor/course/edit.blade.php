@@ -222,6 +222,8 @@
                                         <div class="col-span-6 sm:col-span-3">
                                             <div class="wrapper">
                                                 <div class="image image-edit">
+                                                    {{-- select image from storage --}}
+                                                    {{-- <img src="{{ asset('storage/' . $course->image) }}" alt=""> --}}
                                                     <img src="{{ asset('storage/course/thumbnail/' . $course->image) }}"
                                                         id="preview" alt="{{ $course->image }}"
                                                         style="display: flex">

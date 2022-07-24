@@ -212,7 +212,8 @@ class courseController extends Controller
     public function destroy($id)
     {
         $course = course::find($id);
-        File::delete(public_path('assets/images/courses/' . $course->image));
+        Storage::delete('course/thumbnail/' . $course->image);
+        // File::delete(public_path('assets/images/courses/' . $course->image));
         $course->delete();
         toast()->success('Delete has been succes');
         return redirect()->route('mentor.course.index');
