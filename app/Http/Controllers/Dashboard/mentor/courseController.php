@@ -35,7 +35,7 @@ class courseController extends Controller
         $exam = exam::all();
         // return course::all();
 
-        return view('pages.dashboard.mentor.course.index', compact('courses', 'course', 'categories', 'exam'));
+        return view('pages.Dashboard.mentor.course.index', compact('courses', 'course', 'categories', 'exam'));
     }
 
     // public function data(){
@@ -58,7 +58,7 @@ class courseController extends Controller
         $courses = course::where('user_id', '=', Auth::user()->id)->get();
         $categories = CourseCategory::all();
         $level = level::all();
-        return view('pages.dashboard.mentor.course.create', compact('categories', 'courses', 'level', 'exam'));
+        return view('pages.Dashboard.mentor.course.create', compact('categories', 'courses', 'level', 'exam'));
     }
 
     /**
@@ -141,7 +141,7 @@ class courseController extends Controller
         // $image = file_get_contents($path);
         // $image = base64_encode($image);
         // return $courses;
-        return view('pages.dashboard.mentor.course.edit', compact('course', 'course_category', 'level', 'exam', 'courses'));
+        return view('pages.Dashboard.mentor.course.edit', compact('course', 'course_category', 'level', 'exam', 'courses'));
     }
 
     /**

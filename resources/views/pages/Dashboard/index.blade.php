@@ -249,7 +249,8 @@
 
                                 </div>
 
-                                <img class="w-16 h-12" src="{{ asset('/assets/images/visa-icon.svg') }}" alt="" />
+                                <img class="w-16 h-12" src="{{ asset('/assets/images/visa-icon.svg') }}"
+                                    alt="" />
 
                             </div>
 
@@ -315,7 +316,8 @@
                                                     src="{{ asset('/assets/images/avatar/9.jpg') }}" alt=""
                                                     loading="lazy" />
 
-                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                                <div class="absolute inset-0 rounded-full shadow-inner"
+                                                    aria-hidden="true">
                                                 </div>
 
                                             </div>
@@ -329,7 +331,7 @@
                                     </td>
 
                                     <td class="w-1/2 px-1 py-5 text-xs text-right text-red-500">
-                                        @include('components.dashboard.rating')
+                                        @include('components.Dashboard.rating')
                                     </td>
                                 </tr>
 
@@ -342,7 +344,8 @@
                                                     src="{{ asset('/assets/images/avatar/1.jpg') }}" alt=""
                                                     loading="lazy" />
 
-                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                                <div class="absolute inset-0 rounded-full shadow-inner"
+                                                    aria-hidden="true">
                                                 </div>
                                             </div>
 
@@ -355,7 +358,7 @@
                                     </td>
 
                                     <td class="w-1/2 px-1 py-5 text-xs text-right text-red-500">
-                                        @include('components.dashboard.rating')
+                                        @include('components.Dashboard.rating')
                                     </td>
                                 </tr>
 
@@ -368,7 +371,8 @@
                                                     src="{{ asset('/assets/images/avatar/7.jpg') }}" alt=""
                                                     loading="lazy" />
 
-                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                                <div class="absolute inset-0 rounded-full shadow-inner"
+                                                    aria-hidden="true">
                                                 </div>
                                             </div>
 
@@ -381,7 +385,7 @@
                                     </td>
 
                                     <td class="w-1/2 px-1 py-5 text-xs text-right text-red-500">
-                                        @include('components.dashboard.rating')
+                                        @include('components.Dashboard.rating')
                                     </td>
                                 </tr>
 
@@ -394,7 +398,8 @@
                                                     src="{{ asset('/assets/images/avatar/6.jpg') }}" alt=""
                                                     loading="lazy" />
 
-                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                                <div class="absolute inset-0 rounded-full shadow-inner"
+                                                    aria-hidden="true">
                                                 </div>
 
                                             </div>
@@ -408,7 +413,7 @@
                                     </td>
 
                                     <td class="w-1/2 px-1 py-5 text-xs text-right text-red-500">
-                                        @include('components.dashboard.rating')
+                                        @include('components.Dashboard.rating')
                                     </td>
                                 </tr>
 
@@ -421,7 +426,8 @@
                                                     src="{{ asset('/assets/images/avatar/8.jpg') }}" alt=""
                                                     loading="lazy" />
 
-                                                <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true">
+                                                <div class="absolute inset-0 rounded-full shadow-inner"
+                                                    aria-hidden="true">
                                                 </div>
 
                                             </div>
@@ -435,7 +441,7 @@
                                     </td>
 
                                     <td class="w-1/2 px-1 py-5 text-xs text-right text-red-500">
-                                        @include('components.dashboard.rating')
+                                        @include('components.Dashboard.rating')
                                     </td>
                                 </tr>
 
