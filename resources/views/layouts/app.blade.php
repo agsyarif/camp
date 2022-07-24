@@ -3,13 +3,13 @@
 
 <head>
 
-    @include('includes.dashboard.meta')
+    @include('includes.Dashboard.meta')
 
     <title>@yield('title') | UWHcamp</title>
 
     @stack('before-style')
 
-    @include('includes.dashboard.style')
+    @include('includes.Dashboard.style')
 
     @stack('after-style')
 
@@ -20,7 +20,7 @@
 <body class="antialiased">
     <div class="flex h-screen bg-serv-services-bg" :class="{ 'overflow-hidden': isSideMenuOpen }">
 
-        @include('components.dashboard.dekstop')
+        @include('components.Dashboard.dekstop')
 
         <div x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
             x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
@@ -30,11 +30,11 @@
 
 
 
-        @include('components.dashboard.mobile')
+        @include('components.Dashboard.mobile')
 
         <div class="relative flex flex-col flex-1 w-full">
 
-            @include('components.dashboard.header')
+            @include('components.Dashboard.header')
 
             @include('sweetalert::alert')
 
@@ -46,7 +46,7 @@
 
     @stack('before-script')
 
-    @include('includes.dashboard.script')
+    @include('includes.Dashboard.script')
 
     @stack('after-script')
 
