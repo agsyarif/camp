@@ -2,13 +2,13 @@
 <html lang="{{ str_replace('_', '_', app()->getlocale()) }}">
 
 <head>
-    @include('includes.landing.meta')
+    @include('includes.Landing.meta')
 
     <title>@yield('title') | UWHcamp</title>
 
     @stack('before-style')
 
-    @include('includes.landing.style')
+    @include('includes.Landing.style')
 
     @stack('after-style')
 
@@ -17,25 +17,25 @@
 <body class="antialiased">
     <div class="relative">
 
-        @include('includes.landing.header')
+        @include('includes.Landing.header')
 
         @include('sweetalert::alert')
 
         @yield('content')
 
-        @include('includes.landing.footer')
+        @include('includes.Landing.footer')
 
         {{-- script js --}}
         @stack('before-script')
 
-        @include('includes.landing.script')
+        @include('includes.Landing.script')
 
         @stack('after-script')
 
         {{-- modals --}}
-        @include('components.modal.login')
-        @include('components.modal.register')
-        @include('components.modal.register-success')
+        @include('components.Modal.login')
+        @include('components.Modal.register')
+        @include('components.Modal.register-success')
     </div>
 </body>
 
