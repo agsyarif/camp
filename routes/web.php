@@ -66,7 +66,7 @@ Route::post('payment/success', [LandingController::class, 'midtransCallback']);
 // });
 
 // get image from storage folder
-Route::get('/storage/course/thumbnail/{filename}', function ($filename) {
+Route::get('storage/course/thumbnail/{filename}', function ($filename) {
     $path = storage_path('public/' . $filename);
 
     if (!File::exists($path)) {
