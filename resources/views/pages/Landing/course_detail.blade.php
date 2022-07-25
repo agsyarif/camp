@@ -67,7 +67,7 @@
                             <div class="flex mt-2 flex-nowrap">
 
                                 @if ($courses->image != null)
-                                    <img src="{{ asset('storage/course/thumbnail/' . $courses->image) }}"
+                                    <img src="{{ asset('images/course/thumbnail/' . $courses->image) }}"
                                         alt="Thumbnail Course" loading="lazy" class="w-full h-26 object-cover rounded-2xl ">
                                 @else
                                     <img src="{{ url('https://via.placeholder.com/640x360') }}" alt="Thumbnail Course"
