@@ -48,7 +48,7 @@
                             <span
                                 class="bg-serv-explore-button text-serv-bg block sm:inline-block my-2 py-2 px-8 mx-4 font-medium rounded-xl">
                                 Tingkatan <br><br>
-                                @include('components.landing.level')
+                                @include('components.Landing.level')
                                 {{ $courses->level }}
                             </span>
                         </div> --}}
@@ -56,7 +56,7 @@
                         <h1 class="text-2xl font-semibold">{{ $courses->name ?? '' }}</h1>
 
                         {{-- <div class="my-3">
-                            @include('components.landing.rating')
+                            @include('components.Landing.rating')
                         </div> --}}
                     </div>
 
@@ -207,7 +207,7 @@
 
                                     <div class="items-center col-span-12 p-2 lg:col-span-6">
                                         <div class="ml-24 -mt-10 lg:my-6 lg:text-right">
-                                            @include('components.landing.rating')
+                                            @include('components.Landing.rating')
                                         </div>
                                     </div>
                                 </div>
