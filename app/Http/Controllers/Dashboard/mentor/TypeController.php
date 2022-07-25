@@ -10,15 +10,19 @@ use App\Models\type;
 
 class TypeController extends Controller
 {
-    public function create()
+    public function show($id)
     {
         $courses = course::all()->count();
         $exam = exam::all();
-        return view('pages.Dashboard.mentor.type.create', compact('courses', 'exam'));
+        $id = $id;
+        return view('pages.Dashboard.mentor.type.create', compact('courses', 'exam', 'id'));
     }
 
     public function store(Request $request)
     {
+        $id_exam = $request->id_exam;
+        // return $id_exam;
+        $exam = exam::all();
         $name = $request->title;
         $namem = [];
         for ($i = 0; $i < count($name); $i++) {
@@ -30,7 +34,7 @@ class TypeController extends Controller
         // return $namem;
 
         toast()->success("Add Type Has Been Success");
-        return redirect()->route('mentor.exam.create');
+        return redirect()->route('mentor.question.show', $id_exam);
         // return redirect()->route('mentor.type.index')->with('success', 'Type berhasil ditambahkan');
     }
 }

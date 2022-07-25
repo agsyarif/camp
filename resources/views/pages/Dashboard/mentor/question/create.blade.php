@@ -9,7 +9,7 @@
                 <div class="col-span-12">
 
                     <h2 class="mt-8 mb-1 text-2xl font-semibold text-gray-700">
-                        Add Question To
+                        Add Question To {{ $exam->title }}
                     </h2>
 
                     <p class="text-sm text-gray-400">
@@ -107,7 +107,7 @@
                                                         {{ $errors->first('type_id') }}</p>
                                                 @endif
 
-                                                <a href="{{ route('mentor.type.create') }}"
+                                                <a href="{{ route('mentor.type.show', $exam->id) }}"
                                                     class="rounded-lg mt-1 p-2 flex items-center"
                                                     style="background-color: rgb(185, 185, 185)">
                                                     <svg width="20" height="20" fill="currentColor"
