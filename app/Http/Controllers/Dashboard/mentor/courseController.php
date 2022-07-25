@@ -173,7 +173,11 @@ class courseController extends Controller
             $dataImage = time() . '.' . $image->extension();
             // Storage::delete('images/course/thumbnail/' . $firstImg);
             $image->storeAs('course/thumbnail', $dataImage);
-            File::delete(public_path('images/course/thumbnail' . $firstImg));
+            // File::delete(public_path('images/course/thumbnail' . $firstImg));
+            // detele image from public/images/course/thumbnail
+
+
+
             // $image->move(public_path('assets/images/courses'), $dataImage);
         }
 
