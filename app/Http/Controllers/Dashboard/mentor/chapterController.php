@@ -58,7 +58,7 @@ class chapterController extends Controller
         $exam = exam::all();
         $courses = course::find($id);
         $chapter = CourseLesson::where('course_id', '=', $id)->get();
-        return view('pages.dashboard.mentor.chapter.create', compact('courses', 'chapter', 'exam'));
+        return view('pages.Dashboard.mentor.chapter.create', compact('courses', 'chapter', 'exam'));
     }
 
     public function destroy($id)
