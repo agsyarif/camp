@@ -51,7 +51,7 @@
                             <div class="">
                                 <div class="px-4 py-5 sm:p-6">
 
-                                    @livewire('course-chapter', ['course' => $courses])
+                                    @livewire('course-chapter', ['course' => $course])
 
                                     <div class="grid grid-cols-6 gap-6">
 

@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Dashboard\mentor;
 use App\Models\course;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\exam;
 use App\Models\type;
 
 class TypeController extends Controller
 {
     public function create()
     {
-        $courses = course::all();
-        return view('pages.Dashboard.mentor.type.create', compact('courses'));
+        $courses = course::all()->count();
+        $exam = exam::all();
+        return view('pages.Dashboard.mentor.type.create', compact('courses', 'exam'));
     }
 
     public function store(Request $request)

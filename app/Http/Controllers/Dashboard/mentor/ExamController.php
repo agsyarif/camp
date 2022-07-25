@@ -45,10 +45,11 @@ class ExamController extends Controller
     public function create()
     {
         $type = type::all();
-        $courses = course::all();
+        $course = course::all();
+        $courses = $course->count();
         $course_lesson = CourseLesson::all();
         $exam = exam::all();
-        return view('pages.Dashboard.mentor.exam.create', compact('type', 'courses', 'course_lesson', 'exam'));
+        return view('pages.Dashboard.mentor.exam.create', compact('type', 'courses', 'course_lesson', 'exam', 'course'));
     }
 
     /**
@@ -98,7 +99,7 @@ class ExamController extends Controller
         $exam = exam::find($id);
         $examAll = exam::all();
         $question = question::where('exam_id', $id)->get();
-        $courses = course::all();
+        $courses = course::all()->count();
         $type = type::all();
         $chapter = CourseLesson::where('course_id', '=', $exam->course_id)->get();
         // $chapterTitle = $chapter->pluck('title');

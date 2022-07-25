@@ -18,7 +18,7 @@ class QuestionController extends Controller
         // $exam = exam::where('id', $id)->get();
         $exam = exam::findOrFail($id);
         $examAll = exam::all();
-        $courses = course::all();
+        $courses = course::all()->count();
         $chapter = CourseLesson::where('course_id', '=', $exam->course_id)->get();
         // return $chapter;
         $type = type::all();
@@ -55,7 +55,7 @@ class QuestionController extends Controller
         $question = question::findOrFail($id);
         $exam = exam::all();
         $type = type::all();
-        $courses = course::all();
+        $courses = course::all()->count();
         // return $question;
         return view('pages.Dashboard.mentor.question.edit', compact('question', 'exam', 'type', 'courses'));
     }
