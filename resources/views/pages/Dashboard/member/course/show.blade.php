@@ -80,7 +80,7 @@
                     <div class="mb-4">
                         <video id="preview" style="border-radius: 20px" class="w-full ml-3 h-auto rounded-fill" controls>
                             <source id="video"
-                                src="{{ asset('assets/video/courses/' . $MateriActive[0]->video_url) }}" type="video/mp4">
+                                src="{{ asset('images/video/courses/' . $MateriActive[0]->video_url) }}" type="video/mp4">
                         </video>
                     </div>
                     <div class="d-flex justify-content-between p-4">

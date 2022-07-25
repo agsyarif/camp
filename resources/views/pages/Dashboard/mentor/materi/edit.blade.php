@@ -88,7 +88,7 @@
                                                 <div class="image image-edit">
                                                     <video id="preview" playsinline controls>
                                                         <source
-                                                            src="{{ asset('storage/course/video/' . $materi->video_url) }}"
+                                                            src="{{ asset('images/course/video/' . $materi->video_url) }}"
                                                             type="video/mp4">
                                                     </video>
                                                 </div>
