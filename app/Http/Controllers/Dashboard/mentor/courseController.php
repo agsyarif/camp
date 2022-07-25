@@ -171,9 +171,9 @@ class courseController extends Controller
             $dataImage = $firstImg;
         } else {
             $dataImage = time() . '.' . $image->extension();
-            Storage::delete('course/thumbnail/' . $firstImg);
+            Storage::delete('images/course/thumbnail/' . $firstImg);
             $image->storeAs('course/thumbnail', $dataImage);
-            // File::delete(public_path('assets/images/courses/' . $firstImg));
+            // File::delete(public_path('images/course/thumbnail' . $firstImg));
             // $image->move(public_path('assets/images/courses'), $dataImage);
         }
 
@@ -212,7 +212,7 @@ class courseController extends Controller
     public function destroy($id)
     {
         $course = course::find($id);
-        Storage::delete('course/thumbnail/' . $course->image);
+        Storage::delete('images/course/thumbnail/' . $course->image);
         // File::delete(public_path('assets/images/courses/' . $course->image));
         $course->delete();
         toast()->success('Delete has been succes');

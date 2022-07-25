@@ -224,7 +224,7 @@
                                                 <div class="image image-edit">
                                                     {{-- select image from storage --}}
                                                     {{-- <img src="{{ asset('storage/' . $course->image) }}" alt=""> --}}
-                                                    <img src="{{ asset('storage/course/thumbnail/' . $course->image) }}"
+                                                    <img src="{{ asset('images/course/thumbnail/' . $course->image) }}"
                                                         id="preview" alt="{{ $course->image }}"
                                                         style="display: flex">
                                                 </div>

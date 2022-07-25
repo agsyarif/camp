@@ -63,25 +63,7 @@ Route::post('payment/success', [LandingController::class, 'midtransCallback']);
 // route group menggunakan middleware admin
 // Route::group(['middleware' => ['auth', 'admin']], function () {
 // Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-// });
-
-// get image from storage folder
-Route::get('storage/course/thumbnail/{filename}', function ($filename) {
-    $path = storage_path('public/' . $filename);
-
-    if (!File::exists($path)) {
-        abort(404);
-    }
-
-    $file = File::get($path);
-    $type = File::mimeType($path);
-
-    $response = Response::make($file, 200);
-    $response->header("Content-Type", $type);
-
-    return $response;
-});
-
+// })
 
 Route::group(
     ['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'verified', 'Admin']],
