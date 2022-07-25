@@ -16,6 +16,7 @@ use App\Models\CourseMaterial;
 use Hamcrest\Core\HasToString;
 use App\Models\checkout_course;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 use phpDocumentor\Reflection\Types\This;
 
 class   LandingController extends Controller
@@ -156,9 +157,13 @@ class   LandingController extends Controller
         $idCheckout = $checkout->id;
         $this->getSnapRedirect($idCheckout);
 
+        $check = checkout_course::where('id', $idCheckout)->first();
+
+        $url = $check->midtrans_url;
+        // return Redirect::to($url);
 
         toast()->success('Successfully booked!');
-        return view('midtrans.success', compact('idCheckout'));
+        return view('midtrans.success', compact('idCheckout', 'url'));
     }
 
     public function getSnapRedirect($id)

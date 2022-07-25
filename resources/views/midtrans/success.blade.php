@@ -19,10 +19,12 @@
                         <h2 class="primary-header ">
                             Berhasil Checkout
                         </h2>
+                        <a href="{{ $url }}">Bayar Sekarang</a>
                         <a href="{{ route('explore.landing') }}" class="btn btn-primary mt-3">
                             My Dashboard
                         </a>
                     </div>
+
                 </div>
 
             </div>
