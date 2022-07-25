@@ -236,6 +236,8 @@ class   LandingController extends Controller
         $checkout_id = explode('-', $notif->order_id)[0];
         $checkout = checkout_course::where('id', $checkout_id)->first();
 
+        return $notif;
+
         if ($transaction == 'capture') {
             if ($fraud == 'challenge') {
                 $checkout->payment_status = 'pending';
