@@ -135,6 +135,7 @@ class courseController extends Controller
         $exam = exam::all();
 
         $courses = $course::all()->count();
+        // $thumb = Storage::disk('hosting')->put('course/thumbnail', $course->image);
 
         // $path =
         // $path = storage_path('assets/images/course/' . $courses->image);
@@ -170,7 +171,6 @@ class courseController extends Controller
             $dataImage = $firstImg;
         } else {
             $dataImage = time() . '.' . $image->extension();
-
             Storage::delete('course/thumbnail/' . $firstImg);
             $image->storeAs('course/thumbnail', $dataImage);
             // File::delete(public_path('assets/images/courses/' . $firstImg));
