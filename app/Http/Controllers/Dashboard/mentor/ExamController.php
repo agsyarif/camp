@@ -123,7 +123,7 @@ class ExamController extends Controller
         // $course = course::where('id', $exam->course_id)->get();
         $course_lesson = CourseLesson::where('id', $exam->course_lesson_id)->get();
         $type = type::where('id', $exam->type_id)->first();
-        $courses = course::all();
+        $courses = course::all()->count();
         $course_lesson_all = CourseLesson::all();
         return view('pages.Dashboard.mentor.exam.edit', compact('exam', 'course_lesson', 'type', 'courses', 'course_lesson_all'));
     }

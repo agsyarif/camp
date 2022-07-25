@@ -46,14 +46,12 @@
                         @endcan
 
                         @can('mentor')
-                            <a href="{{ route('mentor.dashboard.index') }}"
-                                class="block lg:hidden nav-link text-serv-text">My
+                            <a href="{{ route('mentor.dashboard.index') }}" class="block lg:hidden nav-link text-serv-text">My
                                 Dashboard</a>
                         @endcan
 
                         @can('member')
-                            <a href="{{ route('member.dashboard.index') }}"
-                                class="block lg:hidden nav-link text-serv-text">My
+                            <a href="{{ route('member.dashboard.index') }}" class="block lg:hidden nav-link text-serv-text">My
                                 Dashboard</a>
                         @endcan
 
