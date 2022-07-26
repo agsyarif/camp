@@ -25,7 +25,7 @@ class MentorController extends Controller
         // ];
         // return $detail;
         // return $detail;
-        return view('pages.dashboard.admin.mentor.index', compact('mentor'));
+        return view('pages.Dashboard.admin.mentor.index', compact('mentor'));
     }
 
     /**
@@ -35,7 +35,7 @@ class MentorController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.admin.mentor.create', [
+        return view('pages.Dashboard.admin.mentor.create', [
             'user_role' => UserRole::all(),
         ]);
     }
@@ -74,7 +74,7 @@ class MentorController extends Controller
      */
     public function show($id)
     {
-        return view('pages.dashboard.admin.mentor.show', [
+        return view('pages.Dashboard.admin.mentor.show', [
             'mentor' => User::findOrFail($id),
             // 'detail' => DetailUser::where('user_id', '=', $id)->first(),
         ]);
@@ -88,7 +88,7 @@ class MentorController extends Controller
      */
     public function edit($id)
     {
-        return view('pages.dashboard.admin.mentor.edit', [
+        return view('pages.Dashboard.admin.mentor.edit', [
             'mentor' => User::findOrFail($id),
             'user_role' => UserRole::all(),
         ]);

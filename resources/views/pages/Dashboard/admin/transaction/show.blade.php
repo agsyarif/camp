@@ -9,11 +9,11 @@
                 <div class="col-span-8">
 
                     <h2 class="mt-8 mb-1 text-2xl font-semibold text-gray-700">
-                        My member {{ $member->name ?? '' }}
+                        My Mentor {{ $mentor->name ?? '' }}
                     </h2>
 
                     <p class="text-sm text-gray-400">
-                        {{ $member->user_roles->name }}
+                        {{ $mentor->user_roles->name }}
                     </p>
 
                 </div>
@@ -23,12 +23,12 @@
                         <button class="">
 
                         </button>
-                        <form action="{{ route('admin.member-management.destroy', $member->id) }}" method="post">
+                        <form action="{{ route('admin.mentor-management.destroy', $mentor->id) }}" method="post">
                             @method('delete')
                             @csrf
                             <button class="px-4 py-2 mt-2 text-left text-white bg-red-400 rounded-xl"
                                 onclick="return confirm('Are you sure?')">
-                                <i class="fas fa-trash-alt fa-lg"></i> Delete member
+                                <i class="fas fa-trash-alt fa-lg"></i> Delete Mentor
                             </button>
                         </form>
 
@@ -43,7 +43,7 @@
 
                 <li class="flex items-center">
 
-                    <a href="{{ route('admin.member-management.index') }}" class="text-gray-400">My member</a>
+                    <a href="{{ route('admin.mentor-management.index') }}" class="text-gray-400">My Mentor</a>
                     <svg class="w-3 h-3 mx-3 text-gray-400 fill-current" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 320 512">
                         <path
@@ -53,7 +53,7 @@
                 </li>
 
                 <li class="flex items-center">
-                    <a href="#" class="font-medium">Details member</a>
+                    <a href="#" class="font-medium">Details Mentor</a>
                 </li>
 
             </ol>
@@ -70,21 +70,21 @@
 
                                     <!-- details heading -->
                                     <div class="details-heading">
-                                        <h1 class="text-2xl font-semibold">{{ $member->name ?? '' }}</h1>
+                                        <h1 class="text-2xl font-semibold">{{ $mentor->name ?? '' }}</h1>
                                         <div class="my-3">
-                                            @include('components.Dashboard.rating')
+                                            @include('components.dashboard.rating')
                                         </div>
                                     </div>
 
                                     <div class="p-3 my-4 bg-gray-100 rounded-lg image-gallery" x-data="gallery()">
 
-                                        @if ($member->profile_photo_path != null)
-                                            <img src="{{ url($member->profile_photo_path) }}" alt=""
+                                        @if ($mentor->profile_photo_path != null)
+                                            <img src="{{ url(Storage::url($mentor->profile_photo_path)) }}" alt=""
                                                 class="rounded-lg cursor-pointer w-100" data-lity>
                                         @else
                                             <img class="rounded-lg cursor-pointer w-100"
-                                                src="{{ url('https://randomuser.me/api/portraits/men/3.jpg') }}"
-                                                alt="" loading="lazy" />
+                                                src="{{ url('https://randomuser.me/api/portraits/men/3.jpg') }}" alt=""
+                                                loading="lazy" />
                                         @endif
 
                                     </div>
@@ -192,9 +192,9 @@
                                         See Reviews
                                     </a>
 
-                                    <a href="{{ route('admin.member-management.edit', $member->id) }}"
+                                    <a href="{{ route('admin.mentor-management.edit', $mentor->id) }}"
                                         class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-lg shadow-sm bg-serv-email hover:bg-serv-email-text focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-serv-email">
-                                        Edit member
+                                        Edit Mentor
                                     </a>
                                 </div>
 
