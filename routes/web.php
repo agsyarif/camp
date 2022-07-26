@@ -60,8 +60,8 @@ Route::resource('/', LandingController::class);
 Route::get('payment/success', [LandingController::class, 'midtransCallback']);
 Route::post('payment/success', [LandingController::class, 'midtransCallback']);
 
-Route::post('checkout', [CheckoutController::class, 'proccess'])->name('checkout');
-Route::post('success', [CheckoutController::class, 'callback'])->name('midtrans.callback');
+// Route::post('checkout', [CheckoutController::class, 'proccess'])->name('checkout');
+// Route::post('success', [CheckoutController::class, 'callback'])->name('midtrans.callback');
 // Dashboard
 // route group menggunakan middleware admin
 // Route::group(['middleware' => ['auth', 'admin']], function () {
