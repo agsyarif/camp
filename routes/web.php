@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\MentorController;
 use App\Http\Controllers\API\MidtransController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Landing\LandingController;
 use App\Http\Controllers\Dashboard\MemberController;
 use App\Http\Controllers\Dashboard\ProfileController;
@@ -28,7 +29,7 @@ use App\Http\Controllers\Dashboard\MentorController as DashboardMentorController
 use App\Http\Controllers\Dashboard\member\CourseController as MemberCourseController;
 use App\Http\Controllers\Dashboard\member\MemberController as MemberMemberController;
 use App\Http\Controllers\Dashboard\mentor\profileController as mentorProfileController;
-
+use App\Http\Controllers\Dashboard\TransactionController;
 
 // frontend
 
@@ -59,6 +60,8 @@ Route::resource('/', LandingController::class);
 Route::get('payment/success', [LandingController::class, 'midtransCallback']);
 Route::post('payment/success', [LandingController::class, 'midtransCallback']);
 
+// Route::post('checkout', [CheckoutController::class, 'proccess'])->name('checkout');
+// Route::post('success', [CheckoutController::class, 'callback'])->name('midtrans.callback');
 // Dashboard
 // route group menggunakan middleware admin
 // Route::group(['middleware' => ['auth', 'admin']], function () {
@@ -73,6 +76,7 @@ Route::group(
         // Route::resource('mentor', MentorController::class);
         Route::resource('member-management', MemberController::class);
         Route::resource('mentor-management', DashboardMentorController::class);
+        Route::resource('transaction', TransactionController::class);
         Route::resource('webinar', WebinarController::class);
         Route::resource('profile', ProfileController::class);
         // Route::resource('user', UserController::class);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Landing;
 
 use Midtrans;
 use Exception;
+use App\Models\exam;
 use Midtrans\Config;
 use App\Models\Order;
 use App\Models\course;
@@ -17,6 +18,7 @@ use Hamcrest\Core\HasToString;
 use App\Models\checkout_course;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Midtrans\Notification;
 use phpDocumentor\Reflection\Types\This;
 
 class   LandingController extends Controller
@@ -24,11 +26,12 @@ class   LandingController extends Controller
 
     public function __construct()
     {
-        Midtrans\Config::$clientKey = env('MIDTRANS_CLIENT_KEY');
-        Midtrans\Config::$serverKey =   env('MIDTRANS_SERVER_KEY');
-        Midtrans\Config::$isProduction = env('MIDTRANS_IS_PRODUCTION');
-        Midtrans\Config::$isSanitized = env('MIDTRANS_IS_SANITIZED');
-        Midtrans\Config::$is3ds = env('MIDTRANS_IS_3DS');
+        // Config::$clientKey = env('MIDTRANS_CLIENT_KEY');
+        Config::$clientKey = config('services.midtrans.clientKey');
+        Config::$serverKey =   config('services.midtrans.serverKey');
+        Config::$isProduction = config('services.midtrans.isProduction');
+        Config::$isSanitized = config('services.midtrans.isSanitized');
+        Config::$is3ds = config('services.midtrans.is3ds');
     }
 
     /**
@@ -176,7 +179,7 @@ class   LandingController extends Controller
 
         $transction_details = [
             'order_id' => $orderId,
-            'gross_amount' => $price,
+            'gross_amount' => (int) $price,
         ];
         $item_details = [
             'id' => $orderId,
@@ -190,7 +193,11 @@ class   LandingController extends Controller
             "Email" => $checkout->User->email,
             "Address" => "",
         ];
-
+        $enabled_payment = [
+            "permata_va",
+            "bca_va", "bni_va", "bri_va", "other_va", "gopay", "indomaret",
+            "shopeepay",
+        ];
         $customer_details = [
             'first_name' => $userData['name'],
             'last_name' => "",
@@ -206,37 +213,36 @@ class   LandingController extends Controller
             'transaction_details' => $transction_details,
             'item_details' => [$item_details],
             'customer_details' => $customer_details,
+            'enabled_payments' => $enabled_payment,
         ];
 
         try {
             //code...
             $payment_url = \Midtrans\Snap::createTransaction($midtrans_params)->redirect_url;
-            // if ($payment_url != null) {
-            //     $checkout->midtrans_url = $payment_url;
-            // } else if ($payment_url == null) {
-            //     $checkout->midtrans_url = 'https://www.midtrans.com/';
-            // }
 
             $checkout->midtrans_url = $payment_url;
             $checkout->save();
 
             return $payment_url;
         } catch (Exception $e) {
-            return false;
+            return $e->getMessage();
         }
     }
 
     public function midtransCallback(Request $request)
     {
-        $notif = new \Midtrans\Notification();
+
+
+        // $notif = $request->method() == 'POST' ? new \Midtrans\Notification() : Midtrans\Transaction::status($request->checkout_id);
+        $notif = new Notification();
 
         $transaction = $notif->transaction_status;
         $fraud = $notif->fraud_status;
 
+        return $notif;
+
         $checkout_id = explode('-', $notif->order_id)[0];
         $checkout = checkout_course::where('id', $checkout_id)->first();
-
-        return $notif;
 
         if ($transaction == 'capture') {
             if ($fraud == 'challenge') {
@@ -264,7 +270,8 @@ class   LandingController extends Controller
         if ($checkout->payment_status == 'paid') {
             $this->addToAksesCourse($checkout->id);
         }
-        return view('midtrans.success', ['active' => 'home']);
+        $active = 'home';
+        return view('midtrans.success', compact('courses', 'exam', 'checkout', 'active'));
     }
 
     // tambah data ke akses courses jika pyment status paid
